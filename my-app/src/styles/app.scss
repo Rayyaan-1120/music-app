@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+html{
+    font-size: 62.5%;
+}
+
+*::-webkit-scrollbar{
+    width: .6rem;
+    padding: 1rem;
+    transition: all 0.5s ease;
+  }
+  
+  *::-webkit-scrollbar-track{
+      background-color: #080d16b2;
+
+  }
+  
+  *::-webkit-scrollbar-thumb{
+      background-color: rgba(255, 255, 255, 0.9);
+
+  }
+
+  .App{
+      width: 100%;
+      min-height: 100vh;
+  }
+
+  .darktheme{
+      background-color: #080d16;
+      color: #fff;
+      transition: all 0.5s ease;
+  }
+
+  @media only screen and (max-width:760px) {
+      .App{
+          width: 100%
+      }
+
+  }
+
+@import './player.scss';
+@import './song.scss';
+@import './library.scss';
+@import './librarysong.scss';
+@import './navbar.scss'

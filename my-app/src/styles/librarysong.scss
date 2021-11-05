@@ -1,0 +1,33 @@
+.librarysongs{
+    display: flex;
+    align-items: center;
+    // justify-content: center;
+    width: 100%;
+    padding: 1rem;
+    cursor: pointer;
+    
+
+    img{
+        width: 6rem;
+        border-radius: 50%;
+        object-fit: cover;
+        
+    }
+
+    h2{
+        font-size: 2rem;
+        padding: 0rem .5rem;
+        color: #fff;
+    }
+
+    h3{
+        font-size: 1.5rem;
+        padding: 0rem .5rem;
+        color: #fff;
+
+    }
+}
+
+.selected{
+    background-color: rgba($color: #fff, $alpha: 0.7);
+}
