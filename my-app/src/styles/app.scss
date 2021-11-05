@@ -43,9 +43,13 @@ html{
 
   .darktheme{
       background-color: #080d16;
-      color: #fff;
+      color: #fff !important;
       transition: all 0.5s ease;
   }
+
+  .color{
+    color: #fff !important;
+}
 
   @media only screen and (max-width:760px) {
       .App{

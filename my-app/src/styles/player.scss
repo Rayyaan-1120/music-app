@@ -15,13 +15,65 @@
     width: 50%;
     padding: .5rem;
 
-    input{
-        width: 100%;
-        -webkit-appearance: none;
-        background-color: transparent;
-        cursor: pointer;
-    }
+    
+   
 }
+
+.rangediv2{
+
+    width: 50%;
+    margin: auto;
+
+    h3{
+        text-align: center;
+    }
+
+    input{
+        width: 100% ;
+        -webkit-appearance: none;
+        background-color: #d3d3d3;
+        cursor: pointer;
+        border-radius: 1rem;
+        background-size: 70%;
+    }
+    input::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%; 
+        background: #04AA6D;
+        cursor: pointer;
+      }
+
+}
+
+
+.rangediv{
+    width: 70%;
+
+    input{
+        width: 100% ;
+        -webkit-appearance: none;
+        background-color: #d3d3d3;
+        cursor: pointer;
+        border-radius: 1rem;
+        background-size: 70%;
+    }
+    input::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%; 
+        background: #04AA6D;
+        cursor: pointer;
+      }
+
+
+
+}
+
 
 .playercontrols{
     padding: .7rem;
@@ -40,11 +92,11 @@ input[type="range"]:focus{
    outline: none;
 }
 
-input[type="range"]::-webkit-slider-thumb{
-    -webkit-appearance: none;
-    width: 16px;
-    height: 16px;
-}
+// input[type="range"]::-webkit-slider-thumb{
+//     -webkit-appearance: none;
+//     width: 16px;
+//     height: 16px;
+// }
 
 .track{
     width: 100%;

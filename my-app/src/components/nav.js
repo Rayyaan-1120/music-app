@@ -8,9 +8,9 @@ const Navbar = ({libraryopen,setlibraryopen}) => {
     }
 
     return(
-        <div className="navbar">
-            <h1>Musified</h1>
-            <button onClick={librarystatehandler}>Library</button>
+        <div className={`navbar ${libraryopen ? 'color' : ''}`}>
+            <h1 className={`${libraryopen ? 'color' : ''}`}>Musified</h1>
+            <button onClick={librarystatehandler} className={`${libraryopen ? 'color' : ''}`}>Library</button>
         </div>
     )
 }

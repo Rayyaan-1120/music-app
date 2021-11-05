@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPause, faPlay } from "@fortawesome/free-solid-svg-icons";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import { faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import {Slider} from 'antd'
 
 const Player = ({
   playingsong,
@@ -16,6 +17,8 @@ const Player = ({
   setsongs
 }) => {
 
+  const [audio,setaudio] = useState(1)
+  // console.log(audioRef.current.volume)
 
   const activesonghandler = (nextprev) => {
     const checked = songs.map(song => {
@@ -47,12 +50,14 @@ const Player = ({
   };
 
   const timeformat = (time) => {
-    return (Math.floor(time) / 60).toFixed(2);
+    return (
+      Math.floor(time / 60) + ":" + ("0" + Math.floor(time % 60)).slice(-2)
+      )
   };
 
-  const draghandler = (e) => {
-    audioRef.current.currentTime = e.target.value;
-    setupdatetime({ ...updatetime, currentTime: e.target.value });
+  const draghandler = (value) => {
+    audioRef.current.currentTime = value;
+    setupdatetime({ ...updatetime, currentTime: value });
   };
 
   const goingtosongs = async (direction) => {
@@ -81,24 +86,28 @@ const Player = ({
 
   }
 
-  const trackanim = {
-    transform:`translateX(${updatetime.animatepercentage}%)`
-  }
-  console.log(trackanim)
+  // const trackanim = {
+  //   transform:`translateX(${updatetime.animatepercentage}%)`
+  // }
+  // console.log(trackanim)
 
   return (
     <div className="playerdiv">
       <div className="inputbar">
         <h2>{timeformat(updatetime.currentTime)}</h2>
-        <div className="track" style={{backgroundImage:`linear-gradient(to right,${currentsong.color[0]},${currentsong.color[1]})`}}>
-        <input
-          type="range"
+        {/* <div className="track" style={{backgroundImage:`linear-gradient(to right,${currentsong.color[0]},${currentsong.color[1]})`}}> */}
+        <div className="rangediv">
+        <Slider
+          // type="range"
+          trackStyle={{backgroundImage:`linear-gradient(to right,${currentsong.color[0]},${currentsong.color[1]})`}}
           min={0}
           max={updatetime.duration || 0}
           value={updatetime.currentTime}
           onChange={draghandler}
+          // range={{ draggableTrack: true }}
+          // className="rangeinput"
         />
-        <div className="animatetrack" style={trackanim}></div>
+        {/* <div className="animatetrack" style={trackanim}></div> */}
         </div>
         <h2>{timeformat(updatetime.duration)}</h2>
       </div>
@@ -111,6 +120,22 @@ const Player = ({
         />
         <FontAwesomeIcon icon={faAngleRight} size="2x" onClick={() => goingtosongs('skipright')}/>
       </div>
+      <div className="rangediv2">
+        <h3>Volume</h3>
+        <Slider
+          // type="range"
+          trackStyle={{backgroundColor:"crimson"}}
+          min={0}
+          max={1}
+          step={0.1}
+          value={audio}
+          onChange={(value) => {
+           audioRef.current.volume = value
+           setaudio(value)
+          }}
+          // className="rangeinput"
+        />
+        </div>
     </div>
   );
 };

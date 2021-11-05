@@ -5,6 +5,7 @@ import Player from "./components/player";
 import Data from "./components/source";
 import Libraryui from "./components/library";
 import Navbar from "./components/nav";
+import 'antd/dist/antd.css';
 
 function App() {
 
